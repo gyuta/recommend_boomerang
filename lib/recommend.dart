@@ -17,40 +17,31 @@ class _RecommendState extends State<Recommend> {
 
   @override
   Widget build(BuildContext context) {
-    // return Scaffold(
-    //     body: Center(
-    //         child: Column(
-    //   mainAxisAlignment: MainAxisAlignment.center,
-    //   children: [
-    //     Padding(
-    //         padding: const EdgeInsets.all(8.0),
-    //         child: Judge(callback: setProgress)),
-    //     LinearProgressIndicator(
-    //       value: progress,
-    //       minHeight: 40,
-    //     )
-    //   ],
-    // )));
     return Scaffold(
-        body: Stack(
-      fit: StackFit.expand,
-      children: <Widget>[
-        Positioned(
-            height: 50.0,
-            bottom: 0,
-            right: 0,
-            left: 0,
-            child: LinearProgressIndicator(
-              value: progress,
-              // minHeight: 40,
-            )),
-        Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Judge(
-            callback: setProgress,
-          ),
+        appBar: AppBar(
+          title: Text("おすすめブーメラン競技診断"),
         ),
-      ],
-    ));
+        body: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            Positioned(
+                height: 50.0,
+                bottom: 0,
+                right: 0,
+                left: 0,
+                child: LinearProgressIndicator(
+                  value: progress,
+                )),
+            Positioned(
+              bottom: 80,
+              top: 20,
+              left: 20,
+              right: 20,
+              child: Judge(
+                callback: setProgress,
+              ),
+            ),
+          ],
+        ));
   }
 }

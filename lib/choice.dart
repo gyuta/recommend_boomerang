@@ -20,10 +20,11 @@ class _ChoiceState extends State<Choice> {
       visible: isVisible,
       child: Card(
         child: Padding(
-          padding: const EdgeInsets.all(30),
+          padding: const EdgeInsets.all(40),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Image.network(widget.img, width: 300),
+              Image.network(widget.img, width: 300, height: 300),
               Text(widget.title),
               getButtonsRow(),
             ],

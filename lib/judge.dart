@@ -28,6 +28,12 @@ class _JudgeState extends State<Judge> {
 
   @override
   Widget build(BuildContext context) {
+    // return Choice(
+    //   title: cardContent[0]["title"],
+    //   img: cardContent[0]["img"],
+    //   callback: callBack,
+    // );
+
     return Stack(
       children: [
         if (remainChoice == 0)
@@ -39,8 +45,6 @@ class _JudgeState extends State<Judge> {
               img: i["img"],
               callback: callBack,
             )
-
-        // Text(point.toString()),
       ],
     );
   }
