@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recommend_boomerang/choice.dart';
 import 'package:recommend_boomerang/result.dart';
+import 'package:recommend_boomerang/cover.dart';
 
 class Judge extends StatefulWidget {
   final Function callback;
@@ -64,18 +65,23 @@ class _JudgeState extends State<Judge> {
         switchOutCurve: Curves.easeInOut,
         child: Container(
           key: ValueKey(choiced),
-          child: (remainChoice != 0)
-              ? Choice(
-                  title: cardContent[choiced]["title"],
-                  img: cardContent[choiced]["img"],
+          child: (choiced == 0)
+              ? Cover(
                   callback: callBack,
                 )
-              : Result(point),
+              : (remainChoice != 0)
+                  ? Choice(
+                      title: cardContent[choiced]["title"],
+                      img: cardContent[choiced]["img"],
+                      callback: callBack,
+                    )
+                  : Result(point),
         ));
   }
 }
 
 const List<Map<String, String>> cardContent = [
+  {"title": "カバー用"},
   {
     "title": "我慢強いほうだ",
     "img":
