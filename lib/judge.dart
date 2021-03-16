@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recommend_boomerang/choice.dart';
+import 'package:recommend_boomerang/result.dart';
 
 class Judge extends StatefulWidget {
   @override
@@ -7,11 +8,12 @@ class Judge extends StatefulWidget {
 }
 
 class _JudgeState extends State<Judge> {
-  int remainChoice = 0;
+  int remainChoice = cardContent.length;
   int point = 0;
 
   void callBack(int val) {
     setState(() {
+      remainChoice--;
       point += val;
     });
   }
@@ -20,13 +22,17 @@ class _JudgeState extends State<Judge> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Text(point.toString()),
-        for (var i in cardContent)
-          Choice(
-            title: i["title"],
-            img: i["img"],
-            callback: callBack,
-          )
+        if (remainChoice == 0)
+          Result(num: point)
+        else
+          for (var i in cardContent)
+            Choice(
+              title: i["title"],
+              img: i["img"],
+              callback: callBack,
+            )
+
+        // Text(point.toString()),
       ],
     );
   }
