@@ -8,7 +8,30 @@ class Result extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Text(resultContent[num]["title"]),
+      child: Padding(
+        padding: const EdgeInsets.all(40.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text("あなたには ${resultContent[num]['title']} がオススメ！"),
+            Image.network(
+                "https://1.bp.blogspot.com/-zf70t5M0sIU/Uku9Ux59RFI/AAAAAAAAYgY/lWtbiqL5rXE/s800/boomerang_boy.png"),
+            Text("オージーとはほげほげする競技です。"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ElevatedButton(
+                    onPressed: () {
+                      // Navigator.pop(context);
+                      Navigator.of(context).pushReplacementNamed("/");
+                    },
+                    child: Text("もう一度診断")),
+                ElevatedButton(onPressed: () {}, child: Text("シェア"))
+              ],
+            )
+          ],
+        ),
+      ),
     );
   }
 }
