@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class Choice extends StatefulWidget {
   final String title;
   final String img;
+  final Function callback;
 
-  Choice({this.title, this.img});
+  Choice({this.title, this.img, this.callback});
 
   @override
   _ChoiceState createState() => _ChoiceState();
@@ -41,6 +42,7 @@ class _ChoiceState extends State<Choice> {
               setState(() {
                 isVisible = false;
               });
+              widget.callback(-1);
             },
             child: Text("いいえ")),
         ElevatedButton(
@@ -48,6 +50,7 @@ class _ChoiceState extends State<Choice> {
               setState(() {
                 isVisible = false;
               });
+              widget.callback(1);
             },
             child: Text("はい"))
       ],
