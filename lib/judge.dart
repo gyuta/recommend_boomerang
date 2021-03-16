@@ -31,10 +31,10 @@ class _JudgeState extends State<Judge> {
     return AnimatedSwitcher(
         transitionBuilder: (Widget child, Animation<double> animation) {
           final inAnimation =
-              Tween<Offset>(begin: Offset(1.0, 0.0), end: Offset(0.0, 0.0))
+              Tween<Offset>(begin: Offset(2.0, 0.0), end: Offset(0.0, 0.0))
                   .animate(animation);
           final outAnimation =
-              Tween<Offset>(begin: Offset(-1.0, 0.0), end: Offset(0.0, 0.0))
+              Tween<Offset>(begin: Offset(-2.0, 0.0), end: Offset(0.0, 0.0))
                   .animate(animation);
 
           if (child.key == ValueKey(choiced)) {
@@ -60,6 +60,8 @@ class _JudgeState extends State<Judge> {
           }
         },
         duration: Duration(seconds: 1),
+        switchInCurve: Curves.easeInOut,
+        switchOutCurve: Curves.easeInOut,
         child: Container(
           key: ValueKey(choiced),
           child: (remainChoice != 0)
