@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class Choice extends StatefulWidget {
   final String title;
+  final String img;
 
-  Choice({this.title});
+  Choice({this.title, this.img});
 
   @override
   _ChoiceState createState() => _ChoiceState();
@@ -21,9 +22,7 @@ class _ChoiceState extends State<Choice> {
           padding: const EdgeInsets.all(30),
           child: Column(
             children: [
-              Image.network(
-                  "https://3.bp.blogspot.com/-h9SmHXv1p8Y/VufYWGJLuXI/AAAAAAAA43U/qbpAradgSTMGdO2NVLpu5nmyddmUWFs0w/s800/kids_kenka.png",
-                  width: 300),
+              Image.network(widget.img, width: 300),
               Text(widget.title),
               getButtonsRow(),
             ],
