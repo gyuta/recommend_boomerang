@@ -28,25 +28,48 @@ class _JudgeState extends State<Judge> {
 
   @override
   Widget build(BuildContext context) {
-    // return Choice(
-    //   title: cardContent[0]["title"],
-    //   img: cardContent[0]["img"],
-    //   callback: callBack,
-    // );
+    return AnimatedSwitcher(
+        transitionBuilder: (Widget child, Animation<double> animation) {
+          final inAnimation =
+              Tween<Offset>(begin: Offset(1.0, 0.0), end: Offset(0.0, 0.0))
+                  .animate(animation);
+          final outAnimation =
+              Tween<Offset>(begin: Offset(-1.0, 0.0), end: Offset(0.0, 0.0))
+                  .animate(animation);
 
-    return Stack(
-      children: [
-        if (remainChoice == 0)
-          Result(point)
-        else
-          for (var i in cardContent)
-            Choice(
-              title: i["title"],
-              img: i["img"],
-              callback: callBack,
-            )
-      ],
-    );
+          if (child.key == ValueKey(choiced)) {
+            return ClipRect(
+              child: SlideTransition(
+                position: inAnimation,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: child,
+                ),
+              ),
+            );
+          } else {
+            return ClipRect(
+              child: SlideTransition(
+                position: outAnimation,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: child,
+                ),
+              ),
+            );
+          }
+        },
+        duration: Duration(seconds: 1),
+        child: Container(
+          key: ValueKey(choiced),
+          child: (remainChoice != 0)
+              ? Choice(
+                  title: cardContent[choiced]["title"],
+                  img: cardContent[choiced]["img"],
+                  callback: callBack,
+                )
+              : Result(point),
+        ));
   }
 }
 

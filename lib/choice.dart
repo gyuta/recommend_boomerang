@@ -17,8 +17,9 @@ class _ChoiceState extends State<Choice> {
   @override
   Widget build(BuildContext context) {
     return Visibility(
-      visible: isVisible,
+      visible: true,
       child: Card(
+        key: UniqueKey(),
         child: Padding(
           padding: const EdgeInsets.all(40),
           child: Column(
