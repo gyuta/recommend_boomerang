@@ -3,19 +3,27 @@ import 'package:recommend_boomerang/choice.dart';
 import 'package:recommend_boomerang/result.dart';
 
 class Judge extends StatefulWidget {
+  final Function callback;
+
+  Judge({this.callback});
+
   @override
   _JudgeState createState() => _JudgeState();
 }
 
 class _JudgeState extends State<Judge> {
+  int choiced = 0;
   int remainChoice = cardContent.length;
   int point = 0;
 
   void callBack(int val) {
     setState(() {
+      choiced++;
       remainChoice--;
       point += val;
     });
+    var progress = choiced / cardContent.length;
+    widget.callback(progress);
   }
 
   @override
@@ -23,7 +31,7 @@ class _JudgeState extends State<Judge> {
     return Stack(
       children: [
         if (remainChoice == 0)
-          Result(num: point)
+          Result(point)
         else
           for (var i in cardContent)
             Choice(

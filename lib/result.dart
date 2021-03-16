@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Result extends StatelessWidget {
   final int num;
 
-  Result({this.num});
+  Result(int point) : this.num = point % resultContent.length;
 
   @override
   Widget build(BuildContext context) {
