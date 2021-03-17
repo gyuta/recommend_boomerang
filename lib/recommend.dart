@@ -21,31 +21,37 @@ class _RecommendState extends State<Recommend> {
         appBar: AppBar(
           title: Text("おすすめブーメラン競技診断"),
         ),
-        body: Stack(
-          fit: StackFit.expand,
-          children: <Widget>[
-            Positioned(
-              height: 50.0,
-              bottom: 0,
-              right: 0,
-              left: 0,
-              child: TweenAnimationBuilder<double>(
-                tween: Tween<double>(begin: 0.0, end: progress),
-                duration: const Duration(seconds: 1),
-                builder: (context, value, _) =>
-                    LinearProgressIndicator(value: value),
+        body: Center(
+          child: Stack(
+            alignment: Alignment.center,
+            fit: StackFit.expand,
+            children: <Widget>[
+              Positioned(
+                height: 50.0,
+                bottom: 0,
+                right: 0,
+                left: 0,
+                child: TweenAnimationBuilder<double>(
+                  tween: Tween<double>(begin: 0.0, end: progress),
+                  duration: const Duration(seconds: 1),
+                  builder: (context, value, _) =>
+                      LinearProgressIndicator(value: value),
+                ),
               ),
-            ),
-            Positioned(
-              bottom: 80,
-              top: 20,
-              left: 20,
-              right: 20,
-              child: Judge(
-                callback: setProgress,
+              Positioned(
+                bottom: 80,
+                top: 20,
+                // left: 20,
+                // right: 20,
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: 400),
+                  child: Judge(
+                    callback: setProgress,
+                  ),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ));
   }
 }
