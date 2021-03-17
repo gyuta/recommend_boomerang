@@ -25,13 +25,17 @@ class _RecommendState extends State<Recommend> {
           fit: StackFit.expand,
           children: <Widget>[
             Positioned(
-                height: 50.0,
-                bottom: 0,
-                right: 0,
-                left: 0,
-                child: LinearProgressIndicator(
-                  value: progress,
-                )),
+              height: 50.0,
+              bottom: 0,
+              right: 0,
+              left: 0,
+              child: TweenAnimationBuilder<double>(
+                tween: Tween<double>(begin: 0.0, end: progress),
+                duration: const Duration(seconds: 1),
+                builder: (context, value, _) =>
+                    LinearProgressIndicator(value: value),
+              ),
+            ),
             Positioned(
               bottom: 80,
               top: 20,
