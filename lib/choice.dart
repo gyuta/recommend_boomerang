@@ -44,7 +44,7 @@ class _ChoiceState extends State<Choice> {
               setState(() {
                 isVisible = false;
               });
-              widget.callback(-1);
+              widget.callback(0);
             },
             child: Text("いいえ")),
         ElevatedButton(

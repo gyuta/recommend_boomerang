@@ -13,6 +13,9 @@ class Cover extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text("謎に包まれた部分の多いスポーツブーメランですが、たくさんの競技があるのをご存知ですか？"),
+              Text("滞空時間を競うものからキャッチ回数を競うもの、果ては決められた姿勢でキャッチするものまで様々です。"),
+              Text("ここでは簡単な質問に答えて頂くだけで、みなさんにおすすめの競技を提案します。"),
+              Text("是非一度使ってみてください。"),
               ElevatedButton(
                   onPressed: () {
                     callback(0);
