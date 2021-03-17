@@ -21,11 +21,11 @@ class _ChoiceState extends State<Choice> {
       child: Card(
         key: UniqueKey(),
         child: Padding(
-          padding: const EdgeInsets.all(40),
+          padding: const EdgeInsets.all(0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Image.network(widget.img, width: 300, height: 300),
+              Image.network(widget.img, width: 200, height: 200),
               Text(widget.title),
               getButtonsRow(),
             ],
@@ -37,7 +37,7 @@ class _ChoiceState extends State<Choice> {
 
   Widget getButtonsRow() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         ElevatedButton(
             onPressed: () {
