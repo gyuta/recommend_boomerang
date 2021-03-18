@@ -87,11 +87,11 @@ const List<Map<String, String>> cardContent = [
     "img":
         "https://3.bp.blogspot.com/-CqYmAclTr3Y/VlaCvXbhDGI/AAAAAAAA1B8/evIAehX02pA/s180-c/medical_geppu_gaman.png"
   },
-  {
-    "title": "人を殴ったことがある",
-    "img":
-        "https://1.bp.blogspot.com/-Ud3Ndr6_SD4/WZVg5YDdQSI/AAAAAAABGFw/FTym1iJJqqkSaFVxbLHR3gOe0-oALH7XwCLcBGAs/s400/kenka_karamu_man.png"
-  },
+  // {
+  //   "title": "人を殴ったことがある",
+  //   "img":
+  //       "https://1.bp.blogspot.com/-Ud3Ndr6_SD4/WZVg5YDdQSI/AAAAAAABGFw/FTym1iJJqqkSaFVxbLHR3gOe0-oALH7XwCLcBGAs/s400/kenka_karamu_man.png"
+  // },
   {
     "title": "野球経験がある",
     "img":
