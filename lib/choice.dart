@@ -25,7 +25,7 @@ class _ChoiceState extends State<Choice> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Image.network(widget.img, width: 200, height: 200),
+              Image.network(widget.img, width: 250, height: 250),
               Text(widget.title),
               getButtonsRow(),
             ],

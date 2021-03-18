@@ -45,8 +45,11 @@ class _RecommendState extends State<Recommend> {
                 // right: 20,
                 child: ConstrainedBox(
                   constraints: BoxConstraints(maxWidth: 400),
-                  child: Judge(
-                    callback: setProgress,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Judge(
+                      callback: setProgress,
+                    ),
                   ),
                 ),
               ),
